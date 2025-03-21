@@ -11,22 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('organizations', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
             $table->string('country')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('website')->nullable();
-            $table->string('logo')->nullable();
-            $table->date('established_date')->nullable();
-            $table->string('time_zone')->default('UTC');
+            $table->date('birth_date')->nullable();
+            $table->string('birth_place')->nullable();
+            $table->string('gender')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->date('baptism_date')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->string('email')->nullable();
+            $table->id('organization_id')->constrained('organizations', 'id')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -37,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('organizations');
+        Schema::dropIfExists('members');
     }
 };
