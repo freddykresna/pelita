@@ -28,7 +28,7 @@ return new class extends Migration
             $table->date('baptism_date')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('email')->nullable();
-            $table->id('organization_id')->constrained('organizations', 'id')->onDelete('cascade');
+            $table->foreignId('organization_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
