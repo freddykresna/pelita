@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
+            $table->string('state_province')->nullable();
             $table->string('zip')->nullable();
             $table->string('country')->nullable();
             $table->date('birth_date')->nullable();
@@ -28,6 +28,7 @@ return new class extends Migration
             $table->date('baptism_date')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('email')->nullable();
+            $table->string('profile_picture')->nullable();
             $table->foreignId('organization_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_position_schedules', function (Blueprint $table) {
+        Schema::create('events_positions_schedules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
-            $table->foreignId('event_position_id')->constrained('event_position')->onDelete('cascade');
+            $table->foreignId('event_position_id')->constrained('events_positions')->onDelete('cascade');
             $table->foreignId('member_id')->constrained()->onDelete('cascade');
             $table->date('date')->nullable();
             $table->timestamps();
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_position_schedules');
+        Schema::dropIfExists('events_positions_schedules');
     }
 };
