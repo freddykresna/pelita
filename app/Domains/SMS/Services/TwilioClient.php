@@ -2,21 +2,21 @@
 
 namespace App\Domains\SMS\Services;
 
+use App\Domains\SMS\Contracts\SMSClientInterface;
 use Log;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
-
-use App\Domains\SMS\Contracts\SMSClientInterface;
 
 class TwilioClient implements SMSClientInterface
 {
     protected Client $client;
 
-    function __construct()
+    public function __construct()
     {
         $this->client = new Client(config('services.twilio.sid'), config('services.twilio.token'));
     }
-    function sendSMS(string $phone, string $message): array
+
+    public function sendSMS(string $phone, string $message): array
     {
         try {
             $message = $this->client->messages->create($phone, [

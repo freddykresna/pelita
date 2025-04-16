@@ -6,7 +6,5 @@ use App\Domains\SMS\Contracts\SMSClientInterface;
 
 class VonageClient implements SMSClientInterface
 {
-    function sendSMS(string $phone, string $message)
-    {
-    }
+    public function sendSMS(string $phone, string $message) {}
 }

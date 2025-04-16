@@ -3,7 +3,6 @@
 namespace Tests\Fakes;
 
 use App\Domains\SMS\Contracts\SMSClientInterface;
-use Twilio\Http\Client;
 
 class FakeTwilioClient implements SMSClientInterface
 {
