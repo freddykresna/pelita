@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->date('date')->nullable();
             $table->boolean('all_day')->default(true);
-            $table->dateTime('start_time')->nullable();
-            $table->dateTime('end_time')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->foreignId('organization_id')->constrained('organizations')->onDelete('cascade');
             $table->boolean('is_active')->default(true);
             $table->boolean('is_public')->default(true);

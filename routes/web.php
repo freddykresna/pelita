@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\PositionController;
 use App\Livewire\Settings\Appearance;
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('members', MemberController::class);
     Route::resource('positions', PositionController::class);
+    Route::resource('events', EventController::class);
 });
 
 require __DIR__.'/auth.php';

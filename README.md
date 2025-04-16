@@ -125,7 +125,7 @@ erDiagram
     events_positions }|--|| positions : has
     events_positions {
         int id
-        int event_id FK
+        int event_uuid FK
         int position_id FK
         timestamp created_at
         timestamp updated_at
@@ -135,35 +135,13 @@ erDiagram
     events_positions_schedules ||--|{ members : belongs_to
     events_positions_schedules {
         int id
-        int events_positions_id FK
+        int event_position_id FK
         int member_id FK
-        date date
-        timestamp created_at
-        timestamp updated_at
-    }
-    
-    events_attendees ||--|{ events : belongs_to
-    events_attendees ||--|{ members : belongs_to
-    events_attendees {
-        int id
         int event_id FK
-        int member_id FK
         timestamp created_at
         timestamp updated_at
     }
-
-    event_schedule_items }|--||events : has
-    event_schedule_items }|--||members : has
-    event_schedule_items {
-        int id
-        int event_id FK
-        string title
-        string description
-        int member_id FK
-        timestamp created_at
-        timestamp updated_at
-    }
-
+  
     events_options ||--|| events : belongs_to
     events_options {
         int id
@@ -174,4 +152,28 @@ erDiagram
         timestamp created_at
         timestamp updated_at
     }
+
+
+%%    events_attendees ||--|{ events : belongs_to
+%%    events_attendees ||--|{ members : belongs_to
+%%    events_attendees {
+%%        int id
+%%        int event_id FK
+%%        int member_id FK
+%%        timestamp created_at
+%%        timestamp updated_at
+%%    }
+
+%%    event_schedule_items }|--||events : has
+%%    event_schedule_items }|--||members : has
+%%    event_schedule_items {
+%%        int id
+%%        int event_id FK
+%%        string title
+%%        string description
+%%        int member_id FK
+%%        timestamp created_at
+%%        timestamp updated_at
+%%    }
+
 ```

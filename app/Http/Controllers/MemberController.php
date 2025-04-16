@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
+
 class MemberController extends Controller
 {
     public function index() {}
@@ -13,11 +15,11 @@ class MemberController extends Controller
 
     public function store() {}
 
-    public function show($id) {}
+    public function show(Member $member) {}
 
-    public function edit($id) {}
+    public function edit(Member $member) {}
 
-    public function update($id) {}
+    public function update(Member $member) {}
 
-    public function destroy($id) {}
+    public function destroy(Member $member) {}
 }

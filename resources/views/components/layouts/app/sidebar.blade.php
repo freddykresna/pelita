@@ -15,13 +15,17 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
-                <flux:navlist.group heading="Members" expandable :expanded="false">
-                    <flux:navlist.item :href="route('members.index')">Members</flux:navlist.item>
-                    <flux:navlist.item :href="route('members.create')">New member</flux:navlist.item>
+                <flux:navlist.group heading="Members" expandable :expanded="request()->routeIs('members.*')">
+                    <flux:navlist.item :href="route('members.index')" :current="request()->routeIs('members.index')">Members</flux:navlist.item>
+                    <flux:navlist.item :href="route('members.create')" :current="request()->routeIs('members.create')">New member</flux:navlist.item>
                 </flux:navlist.group>
-                <flux:navlist.group heading="Positions" expandable :expanded="false">
-                    <flux:navlist.item :href="route('positions.index')">Positions</flux:navlist.item>
-                    <flux:navlist.item :href="route('positions.create')">New position</flux:navlist.item>
+                <flux:navlist.group heading="Positions" expandable :expanded="request()->routeIs('positions.*')">
+                    <flux:navlist.item :href="route('positions.index')" :current="request()->routeIs('positions.index')">Positions</flux:navlist.item>
+                    <flux:navlist.item :href="route('positions.create')" :current="request()->routeIs('positions.create')">New position</flux:navlist.item>
+                </flux:navlist.group>
+                <flux:navlist.group heading="Events" expandable :expanded="request()->routeIs('events.*')">
+                    <flux:navlist.item :href="route('events.index')" :current="request()->routeIs('events.index')">Events</flux:navlist.item>
+                    <flux:navlist.item :href="route('events.create')" :current="request()->routeIs('events.create')">New event</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

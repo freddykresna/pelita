@@ -6,6 +6,8 @@ use App\Models\Position;
 
 class PositionController extends Controller
 {
+    public function index() {}
+
     public function create()
     {
         return view('positions.create');
