@@ -9,17 +9,17 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "laravel/framework": "^12.0",
+        "php": "^8.3",
+        "laravel/framework": "^12.19",
         "laravel/tinker": "^2.10.1",
-        "livewire/flux": "^2.0",
-        "livewire/flux-pro": "^2.0",
-        "twilio/sdk": "^8.5",
-        "vonage/client": "^4.1"
+        "livewire/flux": "^2.2",
+        "livewire/flux-pro": "^2.2",
+        "twilio/sdk": "^8.6",
+        "vonage/client": "^4.2"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.23",
-        "larastan/larastan": "^3.0",
+        "fakerphp/faker": "^1.24",
+        "larastan/larastan": "^3.5",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.21",
         "laravel/sail": "^1.41",
