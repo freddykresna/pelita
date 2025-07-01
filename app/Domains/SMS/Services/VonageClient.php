@@ -3,8 +3,40 @@
 namespace App\Domains\SMS\Services;
 
 use App\Domains\SMS\Contracts\SMSClientInterface;
+use Log;
+use Psr\Http\Client\ClientExceptionInterface;
+use Vonage\Client;
+use Vonage\Client\Exception\Exception;
+use Vonage\SMS\Message\SMS;
 
 class VonageClient implements SMSClientInterface
 {
-    public function sendSMS(string $phone, string $message) {}
+    protected Client $client;
+
+    public function __construct()
+    {
+        $this->client = new Client(config('services.vonage.key'), config('services.vonage.secret'));
+    }
+
+    public function sendSMS(string $phone, string $message): array
+    {
+        try {
+            $text = new SMS($phone, config('vonage.from'), $message);
+            $message = $this->client->sms()->send($text);
+
+            return [
+                'message_id' => $message->current()->getMessageId(),
+                'status' => $message->current()->getStatus(),
+            ];
+
+        } catch (ClientExceptionInterface $e) {
+            Log::error($e->getMessage());
+
+            return ['errorCode' => $e->getCode(), 'errorMessage' => $e->getMessage()];
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+
+            return ['errorCode' => $e->getCode(), 'errorMessage' => $e->getMessage()];
+        }
+    }
 }

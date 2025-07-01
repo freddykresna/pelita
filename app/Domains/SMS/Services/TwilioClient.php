@@ -3,6 +3,7 @@
 namespace App\Domains\SMS\Services;
 
 use App\Domains\SMS\Contracts\SMSClientInterface;
+use Exception;
 use Log;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
@@ -24,8 +25,15 @@ class TwilioClient implements SMSClientInterface
                 'body' => $message,
             ]);
 
-            return ['errorCode' => $message->errorCode, 'errorMessage' => $message->errorMessage];
+            return [
+                'message_id' => $message->sid,
+                'status' => $message->status,
+            ];
         } catch (TwilioException $e) {
+            Log::error($e->getMessage());
+
+            return ['errorCode' => $e->getCode(), 'errorMessage' => $e->getMessage()];
+        } catch (Exception $e) {
             Log::error($e->getMessage());
 
             return ['errorCode' => $e->getCode(), 'errorMessage' => $e->getMessage()];

@@ -8,9 +8,9 @@ class SMSService
 {
     protected SMSClientInterface $smsClient;
 
-    public function __construct(SMSClientInterface $smsClient)
+    public function __construct(SMSClientInterface $defaultClient)
     {
-        $this->smsClient = $smsClient;
+        $this->smsClient = $defaultClient;
     }
 
     public function sendSMS(string $phone, string $message)
