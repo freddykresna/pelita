@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->date('established_date')->nullable();
             $table->string('time_zone')->default('UTC');
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

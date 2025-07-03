@@ -47,7 +47,6 @@ erDiagram
         string logo
         date established_at
         string time_zone
-        bool is_active
         timestamp created_at
         timestamp updated_at
         timestamp deleted_at
@@ -106,7 +105,6 @@ erDiagram
     events ||--|{ organizations : belongs_to
     events {
         int id
-        string uuid
         string name
         string description
         date date
@@ -142,17 +140,16 @@ erDiagram
         timestamp updated_at
     }
   
-    events_options ||--|| events : belongs_to
-    events_options {
-        int id
-        int event_id FK
-        enum reccurrence_type
-        json reccurrence_data
-        date ends_at
-        timestamp created_at
-        timestamp updated_at
-    }
-
+%%  events_options ||--|| events : belongs_to
+%%  events_options {
+%%      int id
+%%      int event_id FK
+%%      enum reccurrence_type
+%%      json reccurrence_data
+%%      date ends_at
+%%      timestamp created_at
+%%      timestamp updated_at
+%%   }
 
 %%    events_attendees ||--|{ events : belongs_to
 %%    events_attendees ||--|{ members : belongs_to

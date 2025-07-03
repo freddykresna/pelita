@@ -16,8 +16,22 @@ class OrganizationFactory extends Factory
      */
     public function definition(): array
     {
+        $states = ['FL', 'GA', 'NY', 'PA'];
+
         return [
-            //
+            'name' => $this->faker->company,
+            'description' => $this->faker->text(200),
+            'address' => $this->faker->address,
+            'city' => $this->faker->city,
+            'state' => $states[array_rand($states, 1)],
+            'zip' => $this->faker->postcode,
+            'country' => 'USA',
+            'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->companyEmail,
+            'website' => $this->faker->url,
+            'logo' => $this->faker->imageUrl(640, 480, 'business', true, 'Organization Logo'),
+            'established_date' => $this->faker->date(),
+            'time_zone' => 'ET',
         ];
     }
 }
