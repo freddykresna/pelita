@@ -4,7 +4,7 @@ namespace App\Domains\SMS\Services;
 
 use App\Domains\SMS\Contracts\SMSClientInterface;
 use Exception;
-use Log;
+use Illuminate\Support\Facades\Log;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
 

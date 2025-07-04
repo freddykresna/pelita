@@ -3,9 +3,10 @@
 namespace App\Domains\SMS\Services;
 
 use App\Domains\SMS\Contracts\SMSClientInterface;
-use Log;
+use Illuminate\Support\Facades\Log;
 use Psr\Http\Client\ClientExceptionInterface;
 use Vonage\Client;
+use Vonage\Client\Credentials\Basic;
 use Vonage\Client\Exception\Exception;
 use Vonage\SMS\Message\SMS;
 
@@ -15,7 +16,8 @@ class VonageClient implements SMSClientInterface
 
     public function __construct()
     {
-        $this->client = new Client(config('services.vonage.key'), config('services.vonage.secret'));
+        $credentials = new Basic(config('services.vonage.key'), config('services.vonage.secret'));
+        $this->client = new Client($credentials);
     }
 
     public function sendSMS(string $phone, string $message): array
