@@ -17,7 +17,9 @@ class PositionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->jobTitle,
+            'description' => $this->faker->sentence(10),
+            'organization_id' => 1, // Default organization
         ];
     }
 }

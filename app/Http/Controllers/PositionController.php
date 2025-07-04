@@ -6,7 +6,10 @@ use App\Models\Position;
 
 class PositionController extends Controller
 {
-    public function index() {}
+    public function index()
+    {
+        return view('positions.index');
+    }
 
     public function create()
     {
@@ -17,7 +20,10 @@ class PositionController extends Controller
 
     public function show(Position $position) {}
 
-    public function edit(Position $position) {}
+    public function edit(Position $position)
+    {
+        return view('positions.edit', compact('position'));
+    }
 
     public function update(Position $position) {}
 

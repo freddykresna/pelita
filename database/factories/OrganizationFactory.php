@@ -19,18 +19,18 @@ class OrganizationFactory extends Factory
         $states = ['FL', 'GA', 'NY', 'PA'];
 
         return [
-            'name' => $this->faker->company,
-            'description' => $this->faker->text(200),
-            'address' => $this->faker->address,
-            'city' => $this->faker->city,
-            'state' => $states[array_rand($states, 1)],
-            'zip' => $this->faker->postcode,
+            'name' => 'Test Organization',
+            'description' => 'A test organization',
+            'address' => '123 Test St',
+            'city' => 'Test City',
+            'state' => 'NY',
+            'zip' => '12345',
             'country' => 'USA',
-            'phone' => $this->faker->phoneNumber,
-            'email' => $this->faker->companyEmail,
-            'website' => $this->faker->url,
-            'logo' => $this->faker->imageUrl(640, 480, 'business', true, 'Organization Logo'),
-            'established_date' => $this->faker->date(),
+            'phone' => '555-123-4567',
+            'email' => 'test@example.com',
+            'website' => 'https://example.com',
+            'logo' => 'test-logo.png',
+            'established_date' => '2020-01-01',
             'time_zone' => 'ET',
         ];
     }

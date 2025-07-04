@@ -9,4 +9,10 @@ class Position extends Model
 {
     /** @use HasFactory<\Database\Factories\PositionFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'organization_id',
+    ];
 }

@@ -32,6 +32,7 @@ class MemberFactory extends Factory
             'marital_status' => $this->faker->randomElement(['Single', 'Married', 'Divorced', 'Widowed']),
             'email' => $this->faker->unique()->safeEmail,
             'profile_picture' => $this->faker->imageUrl(640, 480, 'people'),
+            'organization_id' => 1, // Default organization
         ];
     }
 
