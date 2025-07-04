@@ -14,32 +14,11 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                </flux:navlist.group>
-                <flux:navlist.group heading="Members" expandable :expanded="request()->routeIs('members.*')">
-                    <flux:navlist.item :href="route('members.index')" :current="request()->routeIs('members.index')">Members</flux:navlist.item>
-                    <flux:navlist.item :href="route('members.create')" :current="request()->routeIs('members.create')">New member</flux:navlist.item>
-                </flux:navlist.group>
-                <flux:navlist.group heading="Positions" expandable :expanded="request()->routeIs('positions.*')">
-                    <flux:navlist.item :href="route('positions.index')" :current="request()->routeIs('positions.index')">Positions</flux:navlist.item>
-                    <flux:navlist.item :href="route('positions.create')" :current="request()->routeIs('positions.create')">New position</flux:navlist.item>
-                </flux:navlist.group>
-                <flux:navlist.group heading="Events" expandable :expanded="request()->routeIs('events.*')">
-                    <flux:navlist.item :href="route('events.index')" :current="request()->routeIs('events.index')">Events</flux:navlist.item>
-                    <flux:navlist.item :href="route('events.create')" :current="request()->routeIs('events.create')">New event</flux:navlist.item>
+                    <flux:navlist.item icon="user" :href="route('members.index')" :current="request()->routeIs('members.*')" wire:navigate>Members</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
-
-            <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
-                {{ __('Documentation') }}
-                </flux:navlist.item>
-            </flux:navlist>
 
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">

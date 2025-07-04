@@ -10,4 +10,6 @@ class UserOrganization extends Pivot
 {
     /** @use HasFactory<UserOrganizationFactory> */
     use HasFactory;
+
+    protected $table = 'users_organizations';
 }
